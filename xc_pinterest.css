@@ -1,0 +1,12 @@
+/*
+Plugin Name: Pinterest Pin It button for images
+Plugin URI: http://www.xcake.com.br
+Description: Displays a Pin It button directly over your images
+Author: xCakeBlogs
+Author URI: http://www.xcake.com.br
+Version: 0.1
+*/
+
+.xc_pin {display:block; width:80px; height:50px; background:url('xc_pinterest.png'); z-index:999; margin:0 0 -50px 10px; position:relative; float:left;}
+.xc_pinterest .xc_pin {display:none}
+.xc_pinterest:hover .xc_pin {display:block;}
