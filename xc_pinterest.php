@@ -1,15 +1,15 @@
 <?php
 /*
-Plugin Name: Pinterest Pin It button for images
-Plugin URI: http://www.xcake.com.br
+Plugin Name: Pinterest Pin It Button For Images
+Plugin URI: http://www.canha.net
 Description: Displays a Pin It button directly over your images
-Author: xCakeBlogs
-Author URI: http://www.xcake.com.br
-Version: 0.2
+Author: Canha
+Author URI: http://www.canha.net
+Version: 0.3
 */
 define("XCPIN_PATH", WP_PLUGIN_URL . "/" . plugin_basename( dirname(__FILE__) ) . "/" );
 define("XCPIN_NAME", "Pinterest Pin It button for images");
-define("XCPIN_VERSION", "0.2");
+define("XCPIN_VERSION", "0.3");
 
 /* 
 	Special thanks:
@@ -27,13 +27,11 @@ function xcake_pinterest($content) {
 	global $post;
 
 	$posturl = urlencode(get_permalink()); //Get the post URL
-	$pindiv = '<div class="xc_pinterest">';
-	$pinurl = '<a href="http://pinterest.com/pin/create/button/?url='.$posturl.'&media=';
-	$pindescription = '&description='.urlencode(get_the_title());
-	$pinfinish = '" class="xc_pin"></a>';
-	$pinend = '</div>';
 	$pattern = '/<img(.*?)src="(.*?).(bmp|gif|jpeg|jpg|png)"(.*?) \/>/i';
-  	$replacement = $pindiv.$pinurl.'$2.$3'.$pindescription.$pinfinish.'<img$1src="$2.$3" $4 />'.$pinend;
+  	
+  	//New - working:
+  	$replacement = '<div class="xc_pinterest"><a href="#" onClick=\'window.open("http://pinterest.com/pin/create/button/?url='.$posturl.'&media=$2.$3&description='.urlencode(get_the_title()).'","Pinterest","scrollbars=no,menubar=no,width=600,height=380,resizable=yes,toolbar=no,location=no,status=no")\' class="xc_pin"></a><img$1src="$2.$3" $4 /></div>';
+  	
 	$content = preg_replace( $pattern, $replacement, $content );
 	
 	//Fix the link problem
@@ -44,9 +42,11 @@ function xcake_pinterest($content) {
 	return $content;
 }
 
+
 if (!is_admin()) {
 	wp_enqueue_style('xc_pinterest', XCPIN_PATH.'xc_pinterest.css'); 
 	add_filter('the_content', 'xcake_pinterest');
 }
 
 ?>
+
