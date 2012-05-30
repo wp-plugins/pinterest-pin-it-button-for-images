@@ -5,11 +5,11 @@ Plugin URI: http://www.canha.net
 Description: Displays a Pin It button directly over your images
 Author: Canha
 Author URI: http://www.canha.net
-Version: 0.3
+Version: 0.3.1
 */
 define("XCPIN_PATH", WP_PLUGIN_URL . "/" . plugin_basename( dirname(__FILE__) ) . "/" );
 define("XCPIN_NAME", "Pinterest Pin It button for images");
-define("XCPIN_VERSION", "0.3");
+define("XCPIN_VERSION", "0.3.1");
 
 /* 
 	Special thanks:
@@ -23,7 +23,7 @@ http://docs.appthemes.com/tutorials/automatically-add-rel-attribute-to-wordpress
 
 
 
-function xcake_pinterest($content) {
+function xcake_pinterest_run($content) {
 	global $post;
 
 	$posturl = urlencode(get_permalink()); //Get the post URL
@@ -44,9 +44,8 @@ function xcake_pinterest($content) {
 
 
 if (!is_admin()) {
-	wp_enqueue_style('xc_pinterest', XCPIN_PATH.'xc_pinterest.css'); 
-	add_filter('the_content', 'xcake_pinterest');
+	wp_enqueue_style('xc_pinterest_style', XCPIN_PATH.'xc_pinterest.css'); 
+	add_filter('the_content', 'xcake_pinterest_run');
 }
 
 ?>
-

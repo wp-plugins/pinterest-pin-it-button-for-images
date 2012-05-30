@@ -4,7 +4,7 @@ Donate link: http://bit.ly/xctcc
 Tags: pinterest, pin-it, button, image, images, pinit, social media, hover, click
 Requires at least: 3.2.1
 Tested up to: 3.3.2
-Stable tag: 0.3
+Stable tag: 0.3.1
 
 Add a "Pin It" button over your images, so users can add it to Pinterest easily.
 
@@ -50,6 +50,10 @@ If the image isn't aligned to the left (i.e. centered ou right-aligned) the butt
 1. Button that shows on image hover
 
 == Changelog ==
+
+= 0.3.1 =
+* Released 2012-5-30
+* Fixed bug that will, in some cases, crash the site.
 
 = 0.3 =
 * Released 2012-5-29
