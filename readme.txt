@@ -1,5 +1,5 @@
 === Pinterest Pin It Button For Images ===
-Contributors: canha, pererinha, vhf
+Contributors: canha, noahkagn
 Donate link: http://desgn.me/pinterest
 Tags: pinterest, pin-it, button, image, images, pinit, social media, hover, click, photo, photography, photographer
 Requires at least: 3.2.1
